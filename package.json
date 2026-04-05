@@ -1,12 +1,6 @@
-{
-    "name": "trendbot",
-    "version": "1.0.0",
-    "main": "index.js",
-    "scripts": { "start": "node index.js" },
-    "dependencies": {
-      "@slack/bolt": "^3.17.0",
-      "anthropic": "^0.30.0",
-      "exa-js": "^1.0.10",
-      "dotenv": "^16.0.0"
-    }
+"dependencies": {
+    "@anthropic-ai/sdk": "latest",
+    "@slack/bolt": "latest",
+    "dotenv": "latest",
+    "exa-js": "latest"
   }
