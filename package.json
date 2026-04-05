@@ -1,6 +1,8 @@
-"dependencies": {
-    "@anthropic-ai/sdk": "latest",
-    "@slack/bolt": "latest",
-    "dotenv": "latest",
-    "exa-js": "latest"
+{
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.24.3",
+    "@slack/bolt": "3.18.0",
+    "dotenv": "16.4.5",
+    "exa-js": "1.0.1"
   }
+}
