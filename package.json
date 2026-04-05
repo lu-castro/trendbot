@@ -5,7 +5,7 @@
     "scripts": { "start": "node index.js" },
     "dependencies": {
       "@slack/bolt": "^3.17.0",
-      "anthropic": "latest",
+      "anthropic": "^0.30.0",
       "exa-js": "^1.0.10",
       "dotenv": "^16.0.0"
     }
