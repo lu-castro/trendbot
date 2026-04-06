@@ -43,7 +43,7 @@ REGLAS CRÍTICAS DE RESPUESTA:
 7. ESTRUCTURA: Usa puntos (.) para listar conceptos.,
   messages: [{ 
     role: "user", 
-    content: `Analiza tendencias actuales para esta consulta basándote en estos resultados: ${resumen}` 
+    content: Analiza tendencias actuales para esta consulta basándote en estos resultados: ${resumen}` 
   }]
 });
 
