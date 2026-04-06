@@ -50,7 +50,7 @@ app.event('app_mention', async ({ event, say }) => {
   const esTendencia = texto.includes('tendencia') || texto.includes('trending') || texto.includes('redes');
   const tema = texto.replace(/<@[^>]+>/g, '').replace(/tendencias?|trending|redes sociales/gi, '').trim();
 
-  await say({ text: '🔍 Buscando tendencias actuales...' });
+  await say({ text: '🔍 Bancame un cachito...' });
 
   try {
     const resultado = await buscarTendencias(esTendencia ? tema : null);
@@ -78,12 +78,3 @@ app.message(async ({ message, say }) => {
 })();
 
 
-// Este bloque hace que el bot responda en chats privados (DMs)
-app.event('message', async ({ event, say }) => {
-  // Solo respondemos si es un mensaje directo (channel_type === 'im') 
-  // y si no es un mensaje del propio bot
-  if (event.channel_type === 'im' && !event.bot_id) {
-    await say(`¡Hola! Recibí tu mensaje por privado: "${event.text}". ¿En qué puedo ayudarte hoy?`);
-    // Aquí podrías meter la lógica de Claude que ya tenemos
-  }
-});
