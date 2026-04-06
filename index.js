@@ -39,7 +39,7 @@ REGLAS CRÍTICAS DE RESPUESTA:
 3. SÉ CONCISO: máximo 10 puntos con la información más relevante. 
 4. INFORMACIÓN ACTUAL: las tendencias deben ser del mismo momento que la consulta. 
 5. RIGOR INFORMATIVO: Si la búsqueda no arroja tendencias claras o actuales queda PROHIBIDO inventar tendencias o rellenar con temas genéricos.
-6. ESTRUCTURA: usa puntos para listar y Bold para resaltar. 
+6. ESTRUCTURA: usa puntos para listar. 
 7. FOCO: Solo reporta tendencias que tengan impacto directo en estrategia de contenidos o pauta digital.,. Resultados:\n\n${resumen}`
     }]
   });
