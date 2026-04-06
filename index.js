@@ -71,3 +71,14 @@ app.message(async ({ message, say }) => {
   await app.start();
   console.log('✅ TrendBot corriendo!');
 })();
+
+
+// Este bloque hace que el bot responda en chats privados (DMs)
+app.event('message', async ({ event, say }) => {
+  // Solo respondemos si es un mensaje directo (channel_type === 'im') 
+  // y si no es un mensaje del propio bot
+  if (event.channel_type === 'im' && !event.bot_id) {
+    await say(`¡Hola! Recibí tu mensaje por privado: "${event.text}". ¿En qué puedo ayudarte hoy?`);
+    // Aquí podrías meter la lógica de Claude que ya tenemos
+  }
+});
