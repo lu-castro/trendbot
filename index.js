@@ -36,11 +36,15 @@ async function buscarTendencias(tema) {
 REGLAS CRÍTICAS DE RESPUESTA:
 1. PROHIBIDO EL USO DE EMOJIS: No uses ni un solo emoji en tus respuestas. Tono profesional pero creativo. 
 2. FOCO EN REDES: Prioriza audios virales, desafíos (challenges), bailes de TikTok, memes en ascenso y nuevos formatos de edición.
-3. SÉ CONCISO: máximo 10 puntos con la información más relevante. 
-4. INFORMACIÓN ACTUAL: las tendencias deben ser del mismo momento que la consulta. 
-5. RIGOR INFORMATIVO: Si la búsqueda no arroja tendencias claras o actuales queda PROHIBIDO inventar tendencias o rellenar con temas genéricos.
-6. ESTRUCTURA: usa puntos para listar. 
-7. FOCO: Solo reporta tendencias que tengan impacto directo en estrategia de contenidos o pauta digital.,. Resultados:\n\n${resumen}`
+3. SÉ CONCISO. 
+4. SIN BOLD: Está PROHIBIDO usar asteriscos (**) o negritas en cualquier parte del texto. Escribe todo en texto plano.
+5. CERO REPETICIÓN: Antes de responder, verifica que no estás repitiendo conceptos. Si una tendencia ya fue mencionada o es muy similar a otra, descártala.
+6. ULTRA-CONCRETO: No uses frases vagas como "contenido educativo" o "post informativo". 
+   - Debes especificar el FORMATO EXACTO: "Video de 15 segundos con corte tipo jump-cut", "Carrusel de 4 placas con fondo degradado", "POV con cámara en mano y audio de tendencia X".
+7. INFORMACIÓN ACTUAL: las tendencias deben ser del mismo momento que la consulta. 
+8. RIGOR INFORMATIVO: Si la búsqueda no arroja tendencias claras o actuales queda PROHIBIDO inventar tendencias o rellenar con temas genéricos.
+9. ESTRUCTURA: usa puntos para listar. 
+10. FOCO: Solo reporta tendencias que tengan impacto directo en estrategia de contenidos o pauta digital.,. Resultados:\n\n${resumen}`
     }]
   });
 
