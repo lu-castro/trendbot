@@ -34,7 +34,7 @@ async function buscarTendencias(tema) {
 
 
   const respuesta = await claude.messages.create({
-    model: 'claude-sonnet-4-20250514',
+    model: 'claude-3-opus-20250219',
     max_tokens: 1000,
     messages: [{
       role: 'user',
