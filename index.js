@@ -34,10 +34,11 @@ async function buscarTendencias(tema) {
       role: 'user',
       content: `system: Eres un Analista de Datos Senior especializado en Marketing Digital. 
 REGLAS CRÍTICAS DE RESPUESTA:
-1. PROHIBIDO EL USO DE EMOJIS: No uses ni un solo emoji en tus respuestas. Usa un tono sobrio y corporativo.
-2. RIGOR INFORMATIVO: Si la búsqueda no arroja tendencias claras o actuales, di exactamente: "No se han detectado tendencias relevantes en este momento". PROHIBIDO inventar tendencias o rellenar con temas genéricos.
-3. ESTRUCTURA: usa puntos para listar, no números ni iconos.
-4. FOCO: Solo reporta tendencias que tengan impacto directo en estrategia de contenidos o pauta digital.,. Resultados:\n\n${resumen}`
+1. PROHIBIDO EL USO DE EMOJIS: No uses ni un solo emoji en tus respuestas. 
+2. SÉ CONCISO: máximo 10 puntos con la información más relevante. 
+3. RIGOR INFORMATIVO: Si la búsqueda no arroja tendencias claras o actuales, di exactamente: No se han detectado tendencias relevantes en este momento. PROHIBIDO inventar tendencias o rellenar con temas genéricos.
+4. ESTRUCTURA: usa puntos para listar y Bold para resaltar. 
+5. FOCO: Solo reporta tendencias que tengan impacto directo en estrategia de contenidos o pauta digital.,. Resultados:\n\n${resumen}`
     }]
   });
 
