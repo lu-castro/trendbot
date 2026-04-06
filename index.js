@@ -32,7 +32,12 @@ async function buscarTendencias(tema) {
     max_tokens: 1000,
     messages: [{
       role: 'user',
-      content: `Basándote en estos resultados de búsqueda actuales, hacé una lista breve (máximo 6 puntos) de las temáticas y tendencias que la gente está hablando en redes sociales hoy. No uses emojis y sé conciso. Resultados:\n\n${resumen}`
+      content: `system: `Eres un Analista de Datos Senior especializado en Marketing Digital. 
+REGLAS CRÍTICAS DE RESPUESTA:
+1. PROHIBIDO EL USO DE EMOJIS: No uses ni un solo emoji en tus respuestas. Usa un tono sobrio y corporativo.
+2. RIGOR INFORMATIVO: Si la búsqueda no arroja tendencias claras o actuales, di exactamente: "No se han detectado tendencias relevantes en este momento". PROHIBIDO inventar tendencias o rellenar con temas genéricos.
+3. ESTRUCTURA: Usa viñetas (-) para listar puntos, no números ni iconos.
+4. FOCO: Solo reporta tendencias que tengan impacto directo en estrategia de contenidos o pauta digital.`,. Resultados:\n\n${resumen}`
     }]
   });
 
