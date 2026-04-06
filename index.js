@@ -29,7 +29,7 @@ async function buscarTendencias(tema) {
     .join('\n\n');
 
   const respuesta = await claude.messages.create({
-    model: 'claude-3-5-sonnet-20240620',
+    model: 'claude-3-5-sonnet-20241022',
     max_tokens: 1000,
     system: `Eres un Analista de Tendencias Senior para una agencia de marketing. 
 REGLAS CRÍTICAS DE RESPUESTA:
