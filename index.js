@@ -32,7 +32,7 @@ async function buscarTendencias(tema) {
     max_tokens: 1000,
     messages: [{
       role: 'user',
-      content: `Basándote en estos resultados de búsqueda actuales, hacé una lista breve (máximo 6 puntos) de las temáticas y tendencias que la gente está hablando en redes sociales hoy. Usá emojis, sé conciso. Resultados:\n\n${resumen}`
+      content: `Basándote en estos resultados de búsqueda actuales, hacé una lista breve (máximo 6 puntos) de las temáticas y tendencias que la gente está hablando en redes sociales hoy. Sé conciso. Resultados:\n\n${resumen}`
     }]
   });
 
