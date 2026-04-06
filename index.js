@@ -36,6 +36,7 @@ async function buscarTendencias(tema) {
 REGLAS CRÍTICAS DE RESPUESTA:
 1. PROHIBIDO EL USO DE EMOJIS: No uses ni un solo emoji en tus respuestas. 
 2. SÉ CONCISO: máximo 10 puntos con la información más relevante. 
+3. INFORMACIÓN ACTUAL: las tendencias deben ser del mismo momento que la consulta. 
 3. RIGOR INFORMATIVO: Si la búsqueda no arroja tendencias claras o actuales, di exactamente: No se han detectado tendencias relevantes en este momento. PROHIBIDO inventar tendencias o rellenar con temas genéricos.
 4. ESTRUCTURA: usa puntos para listar y Bold para resaltar. 
 5. FOCO: Solo reporta tendencias que tengan impacto directo en estrategia de contenidos o pauta digital.,. Resultados:\n\n${resumen}`
@@ -51,7 +52,7 @@ app.event('app_mention', async ({ event, say }) => {
   const esTendencia = texto.includes('tendencia') || texto.includes('trending') || texto.includes('redes');
   const tema = texto.replace(/<@[^>]+>/g, '').replace(/tendencias?|trending|redes sociales/gi, '').trim();
 
-  await say({ text: '🔍 Bancame un cachito...' });
+  await say({ text: 'Bancame un cachito... 🔍' });
 
   try {
     const resultado = await buscarTendencias(esTendencia ? tema : null);
