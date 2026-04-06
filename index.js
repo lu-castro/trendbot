@@ -1,10 +1,23 @@
+require('dotenv').config();
+const { App } = require('@slack/bolt');
+const Anthropic = require('@anthropic-ai/sdk');
+const Exa = require('exa-js').default;
+
+const app = new App({
+  token: process.env.SLACK_BOT_TOKEN,
+  signingSecret: process.env.SLACK_SIGNING_SECRET,
+  socketMode: true,
+  appToken: process.env.SLACK_APP_TOKEN,
+});
+
+const claude = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+const exa = new Exa(process.env.EXA_API_KEY);
+
 async function buscarTendencias(tema) {
-  // 1. MEJORAMOS LA QUERY: Agregamos Argentina y formatos específicos para que Exa no traiga basura
   const query = tema 
     ? `latest viral tiktok trends, reels audios and video formats for ${tema}` 
     : `tendencias virales tiktok instagram reels twitter hoy`;
 
-  // 2. BUSQUEDA SEMÁNTICA: Usamos 'neural' para que entienda el contexto de marketing
   const resultados = await exa.searchAndContents(query, {
     numResults: 5,
     type: "neural",
@@ -15,9 +28,8 @@ async function buscarTendencias(tema) {
     .map((r, i) => `[Resultado ${i + 1}]: ${r.text}`)
     .join('\n\n');
 
-  // 3. ESTRUCTURA CORRECTA DE CLAUDE: Separamos System de Messages
   const respuesta = await claude.messages.create({
-    model: 'claude-3-5-sonnet-20240620', // Asegurate de usar un modelo válido
+    model: 'claude-3-5-sonnet-20240620',
     max_tokens: 1000,
     system: `Eres un Analista de Tendencias Senior para una agencia de marketing. 
 REGLAS CRÍTICAS DE RESPUESTA:
@@ -37,4 +49,38 @@ REGLAS CRÍTICAS DE RESPUESTA:
   return respuesta.content[0].text;
 }
 
+// Responde cuando le mencionan (@TrendBot)
+app.event('app_mention', async ({ event, say }) => {
+  const texto = event.text.toLowerCase();
+  const tema = texto.replace(/<@[^>]+>/g, '').trim();
 
+  await say({ text: 'Bancame un cachito... 🔍' });
+
+  try {
+    const resultado = await buscarTendencias(tema || null);
+    await say({ text: resultado });
+  } catch (err) {
+    console.error('Error en app_mention:', err);
+    await say({ text: '❌ Hubo un error buscando tendencias. Intentá de nuevo.' });
+  }
+});
+
+// Responde en DM directo
+app.message(async ({ message, say }) => {
+  if (message.bot_id) return;
+  
+  await say({ text: 'Bancame un cachito... 🔍' });
+  
+  try {
+    const resultado = await buscarTendencias(message.text);
+    await say({ text: resultado });
+  } catch (err) {
+    console.error('Error en message:', err);
+    await say({ text: '❌ Error buscando tendencias.' });
+  }
+});
+
+(async () => {
+  await app.start();
+  console.log('✅ TrendBot corriendo!');
+})();
