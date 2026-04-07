@@ -15,8 +15,8 @@ const exa = new Exa(process.env.EXA_API_KEY);
 
 async function buscarTendencias(tema) {
   const query = tema
-    ? `trending viral social media ${tema} today 2026`
-    : `trending viral social media topics today 2026`;
+    ? `trending viral instagram tiktok twitter youtube ${tema} today realtime`
+    : `trending viral instagram tiktok twitter youtube topics today realtime`;
 
   const resultados = await exa.searchAndContents(query, {
     numResults: 6,
